@@ -15,7 +15,7 @@ provider "azurerm" {
 
 module "aks" {
   source  = "Azure/aks/azurerm"
-  version = "9.1.0"
+  version = "9.2.0"
 
   resource_group_name                 = var.resource_group_name
   cluster_name                        = var.cluster_name
