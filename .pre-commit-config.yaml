@@ -77,7 +77,7 @@ repos:
         args: ["--max-line-length=100", "--ignore=E203,E266,E501,W503"]
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 6.0.0
     hooks:
       - id: isort
         args: ["--profile", "black", "--filter-files"]
