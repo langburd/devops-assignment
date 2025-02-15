@@ -1,9 +1,9 @@
 ---
 appEnvironment: development
-existingSecret: makor-lavan
+existingSecret: devops-assignment
 replicaCount: 1
 image:
-  repository: ghcr.io/langburd/makor-lavan-devops-assignment
+  repository: ghcr.io/langburd/devops-assignment
   pullPolicy: IfNotPresent
   tag: ""
 imagePullSecrets: []
@@ -45,10 +45,10 @@ autoscaling:
 volumes:
   - name: index-html
     configMap:
-      name: makor-lavan-index-html
+      name: devops-assignment-index-html
   - name: env-vars
     configMap:
-      name: makor-lavan-env-vars
+      name: devops-assignment-env-vars
 volumeMounts:
   - name: index-html
     mountPath: /app/web/

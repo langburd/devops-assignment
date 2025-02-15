@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "makor-lavan.fullname" . }}
+  name: {{ include "devops-assignment.fullname" . }}
   labels:
-    {{- include "makor-lavan.labels" . | nindent 4 }}
+    {{- include "devops-assignment.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "makor-lavan.selectorLabels" . | nindent 4 }}
+    {{- include "devops-assignment.selectorLabels" . | nindent 4 }}

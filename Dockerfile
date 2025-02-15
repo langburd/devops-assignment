@@ -1,6 +1,7 @@
 FROM python:3.13-alpine
 
 LABEL maintainer="Avi Langburd <avi@langburd.com>"
+LABEL org.opencontainers.image.source="https://github.com/langburd/devops-assignment"
 
 WORKDIR /app
 

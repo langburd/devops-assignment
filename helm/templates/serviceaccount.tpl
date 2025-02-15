@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ include "makor-lavan.serviceAccountName" . }}
+  name: {{ include "devops-assignment.serviceAccountName" . }}
   labels:
-    {{- include "makor-lavan.labels" . | nindent 4 }}
+    {{- include "devops-assignment.labels" . | nindent 4 }}
   {{- with .Values.serviceAccount.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

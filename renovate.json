@@ -5,10 +5,34 @@
   ],
   "packageRules": [
     {
+      "enabled": false,
+      "matchManagers": [
+        "terraform"
+      ],
+      "matchPackageNames": [
+        "Azure/aks/azurerm"
+      ]
+    },
+    {
+      "enabled": false,
+      "matchFiles": [
+        "modules/azure/aks/main.tf"
+      ],
+      "matchManagers": [
+        "terraform"
+      ],
+      "matchPackageNames": [
+        "hashicorp/azurerm"
+      ]
+    },
+    {
+      "automerge": true,
       "description": "Automerge non-major updates",
-      "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
-      "automerge": true
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
     }
   ],
   "pre-commit": {
