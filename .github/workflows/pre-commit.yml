@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+
       - name: Install prerequisites (shfmt, hadolint, terragrunt, terraform-docs, tflint)
         run: |
           # Set the directory to install binaries

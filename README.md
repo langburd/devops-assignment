@@ -53,7 +53,9 @@ docker push $REGISTRY:$VERSION
 ## Authenticate to AWS EKS and Azure AKS
 
 ```shell
-touch $(pwd)/kubeconfig.yaml && chmod 600 $(pwd)/kubeconfig.yaml && export KUBECONFIG=$(pwd)/kubeconfig.yaml
+touch $(pwd)/kubeconfig.yaml
+chmod 600 $(pwd)/kubeconfig.yaml
+export KUBECONFIG=$(pwd)/kubeconfig.yaml
 # EKS
 export AWS_PROFILE=devops-assignment
 aws eks update-kubeconfig \
