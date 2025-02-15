@@ -1,7 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
   "extends": [
-    "config:recommended"
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":enablePreCommit",
+    ":semanticCommits",
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
   ],
   "packageRules": [
     {
@@ -37,5 +43,7 @@
   ],
   "pre-commit": {
     "enabled": true
-  }
+  },
+  "separateMinorPatch": true,
+  "timezone": "Asia/Jerusalem"
 }
