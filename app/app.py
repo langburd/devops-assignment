@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Example echo server application prepared for Mend."""
+"""Example echo server application prepared for the devops-assignment."""
 
 import os
 import re
@@ -47,7 +47,7 @@ def echo():
     echo_string = {
         "_app_environment": app_environment,
         "_app_version": app_version,
-        "_app_repository": "https://github.com/langburd/makor-lavan-devops-assignment",
+        "_app_repository": "https://github.com/langburd/devops-assignment",
     }
 
     # Get the client IP from the request

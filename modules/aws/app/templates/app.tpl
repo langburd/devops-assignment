@@ -1,6 +1,6 @@
 ---
 appEnvironment: ${app_environment}
-existingSecret: makor-lavan
+existingSecret: devops-assignment
 fullnameOverride: ${app_name}
 ingress:
   enabled: true

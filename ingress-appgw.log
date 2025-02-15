@@ -1,0 +1,30 @@
+az role assignment create --role Reader --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+az role assignment create --role Contributor --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd/providers/Microsoft.Network/applicationGateways/avilangburd-appgw --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+
+az role assignment create --role Reader --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+az role assignment create --role Contributor --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd/providers/Microsoft.Network/applicationGateways/avilangburd-appgw --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+
+18:27:35.206 STDOUT terraform:   # azurerm_role_assignment.aks_workload_identity_contributor will be created
+18:27:35.206 STDOUT terraform:   + resource "azurerm_role_assignment" "aks_workload_identity_contributor" {
+18:27:35.206 STDOUT terraform:       + condition_version                = (known after apply)
+18:27:35.206 STDOUT terraform:       + id                               = (known after apply)
+18:27:35.206 STDOUT terraform:       + name                             = (known after apply)
+18:27:35.206 STDOUT terraform:       + principal_id                     = "29505745-f75f-4dc8-ba14-b646a205ac72"
+18:27:35.206 STDOUT terraform:       + principal_type                   = (known after apply)
+18:27:35.206 STDOUT terraform:       + role_definition_id               = "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+18:27:35.206 STDOUT terraform:       + role_definition_name             = (known after apply)
+18:27:35.206 STDOUT terraform:       + scope                            = "/subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd/providers/Microsoft.Network/applicationGateways/avilangburd-appgw"
+18:27:35.207 STDOUT terraform:       + skip_service_principal_aad_check = (known after apply)
+18:27:35.207 STDOUT terraform:     }
+18:27:35.207 STDOUT terraform:   # azurerm_role_assignment.aks_workload_identity_reader will be created
+18:27:35.207 STDOUT terraform:   + resource "azurerm_role_assignment" "aks_workload_identity_reader" {
+18:27:35.207 STDOUT terraform:       + condition_version                = (known after apply)
+18:27:35.207 STDOUT terraform:       + id                               = (known after apply)
+18:27:35.207 STDOUT terraform:       + name                             = (known after apply)
+18:27:35.207 STDOUT terraform:       + principal_id                     = "29505745-f75f-4dc8-ba14-b646a205ac72"
+18:27:35.207 STDOUT terraform:       + principal_type                   = (known after apply)
+18:27:35.207 STDOUT terraform:       + role_definition_id               = "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7"
+18:27:35.207 STDOUT terraform:       + role_definition_name             = (known after apply)
+18:27:35.207 STDOUT terraform:       + scope                            = "/subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd"
+18:27:35.207 STDOUT terraform:       + skip_service_principal_aad_check = (known after apply)
+18:27:35.207 STDOUT terraform:     }

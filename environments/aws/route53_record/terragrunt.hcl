@@ -3,7 +3,7 @@ terraform {
 }
 
 include "root" {
-  path   = "${find_in_parent_folders()}"
+  path   = "${find_in_parent_folders("root.hcl")}"
   expose = true
 }
 
@@ -40,7 +40,7 @@ dependency "route53_zone" {
 dependency "helm" {
   config_path = "../app"
   mock_outputs = {
-    app_name = "makor-lavan"
+    app_name = "devops-assignment"
   }
 }
 

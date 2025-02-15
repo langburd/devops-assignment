@@ -25,15 +25,15 @@ locals {
 remote_state {
   backend = "s3"
   config = {
-    bucket                   = "makor-lavan-devops-assignment"
+    bucket                   = "7221dada-dad1-4956-b213-c37c66c7a932"
     key                      = "${path_relative_to_include()}/terraform.tfstate"
     region                   = local.common_vars.common["default_region"]
     encrypt                  = true
     skip_bucket_ssencryption = true
-    dynamodb_table           = "makor-lavan-devops-assignment"
+    dynamodb_table           = "7221dada-dad1-4956-b213-c37c66c7a932"
     s3_bucket_tags = {
       "Department"    = "DevOps"
-      "GitRepository" = "https://github.com/langburd/makor-lavan-devops-assignment"
+      "GitRepository" = "https://github.com/langburd/devops-assignment"
       "Owner"         = "Avi Langburd"
       "Temp"          = "True"
       "Terraform"     = "True"
@@ -44,5 +44,3 @@ remote_state {
     if_exists = "overwrite"
   }
 }
-
-skip = true

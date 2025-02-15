@@ -5,17 +5,17 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "< 4.4"
+      version = ">= 4.0"
     }
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.32.0"
+      version = ">= 2.35.0"
     }
 
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.15.0"
+      version = ">= 2.17.0"
     }
   }
 }
@@ -49,6 +49,10 @@ data "azurerm_client_config" "current" {}
 
 data "azurerm_subscription" "current" {}
 
+# data "azurerm_role_definition" "reader" {
+#   name = "Reader"
+# }
+
 data "azurerm_role_definition" "contributor" {
   name = "Contributor"
 }
@@ -75,6 +79,30 @@ resource "azurerm_role_assignment" "aks_workload_identity" {
   role_definition_id = "${data.azurerm_subscription.current.id}${data.azurerm_role_definition.contributor.id}"
   principal_id       = azurerm_user_assigned_identity.aks_workload_identity.principal_id
 }
+
+# az role assignment create --role Reader --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+# az role assignment create --role Contributor --scope /subscriptions/659a309d-849e-4ab3-8876-7c48581ead36/resourceGroups/avilangburd/providers/Microsoft.Network/applicationGateways/avilangburd-appgw --assignee ad94d8e9-9199-4b81-97be-2a36300baab4
+
+# data "azurerm_resource_group" "this" {
+#   name = var.resource_group_name
+# }
+
+# data "azurerm_application_gateway" "this" {
+#   name                = var.ingress_application_gateway_name
+#   resource_group_name = var.resource_group_name
+# }
+
+# resource "azurerm_role_assignment" "aks_workload_identity_reader" {
+#   scope                = data.azurerm_resource_group.this.id
+#   role_definition_name = "Reader"
+#   principal_id         = azurerm_user_assigned_identity.aks_workload_identity.principal_id
+# }
+
+# resource "azurerm_role_assignment" "aks_workload_identity_contributor" {
+#   scope                = data.azurerm_application_gateway.this.id
+#   role_definition_name = "Contributor"
+#   principal_id         = azurerm_user_assigned_identity.aks_workload_identity.principal_id
+# }
 
 # Install CRD's for Application Gateway Ingress Controller (AGIC) Helm chart
 resource "helm_release" "aad_pod_identity" {
@@ -120,8 +148,8 @@ resource "helm_release" "ingress_azure" {
   name            = "ingress-azure"
   namespace       = "kube-system"
   chart           = "ingress-azure"
-  repository      = "https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/"
-  version         = "1.7.5"
+  repository      = "oci://mcr.microsoft.com/azure-application-gateway/charts"
+  version         = "1.8.0"
   wait            = true
   force_update    = true
   recreate_pods   = true

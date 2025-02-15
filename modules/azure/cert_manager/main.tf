@@ -5,17 +5,17 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "< 4.4"
+      version = ">= 4.0"
     }
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.32.0"
+      version = ">= 2.35.0"
     }
 
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.15.0"
+      version = ">= 2.17.0"
     }
   }
 }
@@ -51,7 +51,7 @@ resource "helm_release" "cert_manager" {
   namespace        = "cert-manager"
   create_namespace = true
   chart            = "cert-manager"
-  version          = "v1.16.2"
+  version          = "v1.17.1"
   values = [
     templatefile("${path.module}/templates/cert_manager.tpl", {
       installCRDs = true

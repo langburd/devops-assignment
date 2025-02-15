@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "makor-lavan.name" -}}
+{{- define "devops-assignment.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "makor-lavan.fullname" -}}
+{{- define "devops-assignment.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "makor-lavan.chart" -}}
+{{- define "devops-assignment.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "makor-lavan.labels" -}}
-helm.sh/chart: {{ include "makor-lavan.chart" . }}
-{{ include "makor-lavan.selectorLabels" . }}
+{{- define "devops-assignment.labels" -}}
+helm.sh/chart: {{ include "devops-assignment.chart" . }}
+{{ include "devops-assignment.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "makor-lavan.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "makor-lavan.name" . }}
+{{- define "devops-assignment.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "devops-assignment.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "makor-lavan.serviceAccountName" -}}
+{{- define "devops-assignment.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "makor-lavan.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "devops-assignment.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

@@ -1,1 +1,28 @@
-../app/web/index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to the DevOps Assignment Application!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 60em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to the DevOps Assignment Application!</h1>
+<p>If you see this page, <a href="https://www.linkedin.com/in/langburd/">Avi Langburd</a> has successfully installed the test application<p>
+
+<p>Project repository:
+<a href="https://github.com/langburd/devops-assignment">https://github.com/langburd/devops-assignment</a>
+</p>
+
+<p>Application environment: "{{ app_environment }}"</p>
+
+<p>Application version: "{{ app_version }}"</p>
+
+<p>Application hostname: "{{ app_hostname }}"</p>
+
+<p>More information about the application: <a href={{ url_for("echo") }}>json</a></p>
+
+</body>
+</html>

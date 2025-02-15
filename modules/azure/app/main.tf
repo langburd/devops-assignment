@@ -5,17 +5,17 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "< 4.4"
+      version = ">= 4.0"
     }
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.32.0"
+      version = ">= 2.35.0"
     }
 
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.15.0"
+      version = ">= 2.17.0"
     }
   }
 }
@@ -54,7 +54,7 @@ resource "kubernetes_manifest" "letsencrypt_prod" {
     }
     spec = {
       acme = {
-        email  = "mend@langburd.com"
+        email  = "devops@langburd.com"
         server = "https://acme-v02.api.letsencrypt.org/directory"
         privateKeySecretRef = {
           name = "letsencrypt-prod"

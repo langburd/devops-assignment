@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "makor-lavan.fullname" . }}
+  name: {{ include "devops-assignment.fullname" . }}
   labels:
-    {{- include "makor-lavan.labels" . | nindent 4 }}
+    {{- include "devops-assignment.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "makor-lavan.selectorLabels" . | nindent 6 }}
+      {{- include "devops-assignment.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "makor-lavan.labels" . | nindent 8 }}
+        {{- include "devops-assignment.labels" . | nindent 8 }}
 	{{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "makor-lavan.serviceAccountName" . }}
+      serviceAccountName: {{ include "devops-assignment.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

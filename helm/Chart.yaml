@@ -1,8 +1,8 @@
 ---
 apiVersion: v2
-name: makor-lavan
+name: devops-assignment
 description: A Helm chart for Kubernetes
-icon: https://www.mend.io/wp-content/media/2023/04/mend-io-logo-circle.png
+icon: https://e7.pngegg.com/pngimages/401/951/png-clipart-devops-software-developer-agile-software-development-software-testing-puppet-icon-devops-logo-text-logo-thumbnail.png
 type: application
-version: 1.0.2
-appVersion: "v1.0.2"
+version: 1.0.4
+appVersion: "v1.0.4"
