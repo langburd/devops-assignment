@@ -21,7 +21,7 @@
     },
     {
       "enabled": false,
-      "matchFiles": [
+      "matchFileNames": [
         "modules/azure/aks/main.tf"
       ],
       "matchManagers": [
