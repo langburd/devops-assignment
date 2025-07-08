@@ -51,7 +51,7 @@ repos:
 
   # Terraform and Terragrunt hooks
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.99.4
+    rev: v1.99.5
     hooks:
       - id: terragrunt_fmt
       # - id: terragrunt_validate
