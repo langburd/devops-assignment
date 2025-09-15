@@ -1,6 +1,7 @@
-variable "hosted_zone_name" {
-  description = "The name of the hosted zone"
+variable "app_name" {
+  description = "The name of the app"
   type        = string
+  default     = "app"
 }
 
 variable "hosted_zone_id" {
@@ -8,10 +9,9 @@ variable "hosted_zone_id" {
   type        = string
 }
 
-variable "app_name" {
-  description = "The name of the app"
+variable "hosted_zone_name" {
+  description = "The name of the hosted zone"
   type        = string
-  default     = "app"
 }
 
 variable "tags" {
