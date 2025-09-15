@@ -43,7 +43,9 @@ def serve_index():
 
 @app.route("/json")
 def echo():
-    """Main function returning the given echo string and geo location of the user."""
+    """
+    Main function returning the given echo string and geo location of the user.
+    """
     echo_string = {
         "_app_environment": app_environment,
         "_app_version": app_version,
@@ -57,10 +59,17 @@ def echo():
         client_ip = request.remote_addr
 
     # Clean the client IP from the port number
-    clean_client_ip = re.findall(r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", client_ip)
+    if client_ip:
+        clean_client_ip = re.findall(r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", client_ip)
+    else:
+        clean_client_ip = []
 
     # Get the geo location data from the client IP
-    geo_location_data = geocoder.ip(clean_client_ip[0])
+    if clean_client_ip:
+        geo_location_data = geocoder.ip(clean_client_ip[0])
+    else:
+        # Fallback to empty geocoder data if no valid IP found
+        geo_location_data = geocoder.ip("127.0.0.1")
 
     # Merge two dictionaries
     response_data = echo_string | geo_location_data.json
