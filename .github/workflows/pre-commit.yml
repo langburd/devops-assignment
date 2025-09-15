@@ -152,6 +152,9 @@ jobs:
           # Install tflint
           install_zip "tflint" "$(curl -sL https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64.zip" | head -1)"
 
+          # Install tfsort
+          install_tar_gz "tfsort" "$(curl -sL https://api.github.com/repos/AlexNabokikh/tfsort/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64.tar.gz" | head -1)"
+
           echo "All installations completed."
 
       - name: Run pre-commit action
