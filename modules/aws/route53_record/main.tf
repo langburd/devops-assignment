@@ -6,10 +6,6 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 5.25.0"
     }
-    # dns = {
-    #   source  = "hashicorp/dns"
-    #   version = ">= 3.4.0"
-    # }
   }
 }
 
@@ -18,10 +14,6 @@ data "aws_elb_hosted_zone_id" "this" {}
 data "aws_lb" "app" {
   name = var.app_name
 }
-
-# data "dns_a_record_set" "alb" {
-#   host = data.aws_lb.app.dns_name
-# }
 
 # DNS records for application
 resource "aws_route53_record" "app" {

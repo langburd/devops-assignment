@@ -17,6 +17,7 @@ inputs:
       max_size: 2
       desired_size: 1
       max_unavailable: 1
-      instance_types: ["t3.medium"]
+      instance_types:
+        - "t3.medium"
   tags:
     Name: avilangburd

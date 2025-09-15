@@ -10,8 +10,8 @@ variable "app_name" {
   default     = "app"
 }
 
-variable "hosted_zone_name" {
-  description = "The name of the hosted zone"
+variable "certificate_arn" {
+  description = "ARN of the ACM certificate"
   type        = string
 }
 
@@ -20,7 +20,7 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "certificate_arn" {
-  description = "ARN of the ACM certificate"
+variable "hosted_zone_name" {
+  description = "The name of the hosted zone"
   type        = string
 }
