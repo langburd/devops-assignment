@@ -63,7 +63,13 @@ jobs:
               local name=$1
               local url=$2
 
+              if [[ -z "${url}" ]]; then
+                  echo "Error: No download URL found for ${name}"
+                  return 1
+              fi
+
               echo "Installing ${name}..."
+              echo "Download URL: ${url}"
               download_file "${url}" "${BIN_DIR}/${name}"
               check_exit_code $? "downloading ${name}"
 
@@ -79,7 +85,13 @@ jobs:
               local name=$1
               local url=$2
 
+              if [[ -z "${url}" ]]; then
+                  echo "Error: No download URL found for ${name}"
+                  return 1
+              fi
+
               echo "Installing ${name}..."
+              echo "Download URL: ${url}"
               download_file "${url}" "${BIN_DIR}/${name}.tar.gz"
               check_exit_code $? "downloading ${name}"
 
@@ -98,7 +110,13 @@ jobs:
               local name=$1
               local url=$2
 
+              if [[ -z "${url}" ]]; then
+                  echo "Error: No download URL found for ${name}"
+                  return 1
+              fi
+
               echo "Installing ${name}..."
+              echo "Download URL: ${url}"
               download_file "${url}" "${BIN_DIR}/${name}.zip"
               check_exit_code $? "downloading ${name}"
 
@@ -120,19 +138,19 @@ jobs:
           fi
 
           # Install hadolint
-          install_binary "hadolint" "$(curl -sL https://api.github.com/repos/hadolint/hadolint/releases/latest | grep browser_download_url | grep -o -E "https://.+?-Linux-x86_64" | uniq || true)"
+          install_binary "hadolint" "$(curl -sL https://api.github.com/repos/hadolint/hadolint/releases/latest | grep browser_download_url | grep -o -E "https://.+?hadolint-linux-x86_64" | head -1)"
 
           # Install shfmt
-          install_binary "shfmt" "$(curl -sL https://api.github.com/repos/mvdan/sh/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64" || true)"
+          install_binary "shfmt" "$(curl -sL https://api.github.com/repos/mvdan/sh/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64" | head -1)"
 
           # Install terraform-docs
-          install_tar_gz "terraform-docs" "$(curl -sL https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep browser_download_url | grep -o -E "https://.+?-linux-amd64.tar.gz" || true)"
+          install_tar_gz "terraform-docs" "$(curl -sL https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep browser_download_url | grep -o -E "https://.+?-linux-amd64.tar.gz" | head -1)"
 
           # Install terragrunt
-          install_binary "terragrunt" "$(curl -sL https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64" || true)"
+          install_binary "terragrunt" "$(curl -sL https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64" | head -1)"
 
           # Install tflint
-          install_zip "tflint" "$(curl -sL https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64.zip" || true)"
+          install_zip "tflint" "$(curl -sL https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep browser_download_url | grep -o -E "https://.+?_linux_amd64.zip" | head -1)"
 
           echo "All installations completed."
 
