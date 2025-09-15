@@ -1,0 +1,42 @@
+---
+# https://yamllint.readthedocs.io/en/stable/configuration.html
+extends: default
+# Rules documentation: http://yamllint.readthedocs.io/en/latest/rules.html
+rules:
+  # Allow reasonable spacing in braces
+  braces:
+    max-spaces-inside: 1
+    min-spaces-inside: 0
+  # Be lenient with brackets for complex configurations
+  brackets:
+    max-spaces-inside: 1
+    min-spaces-inside: 0
+  # Allow reasonable spacing in comments
+  comments:
+    min-spaces-from-content: 1
+    # Disabling to allow for code comment blocks and #!/usr/bin/ansible-playbook
+    require-starting-space: false
+  # Enforce document start marker for all YAML files
+  document-start:
+    present: true
+  # Allow empty values which are common in infrastructure configs
+  empty-values:
+    forbid-in-block-mappings: false
+    forbid-in-flow-mappings: false
+  # Standard 2-space indentation for YAML files
+  indentation:
+    check-multi-line-strings: false
+    indent-sequences: true
+    spaces: 2
+  # Allow longer lines for Terraform and infrastructure configurations
+  line-length: disable
+  # Be flexible with truthy values for Terraform and Kubernetes configs
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+      - 'on'
+      - 'off'
+      - 'yes'
+      - 'no'
+    check-keys: true
