@@ -119,7 +119,7 @@ resource "helm_release" "ingress_azure" {
   namespace       = "kube-system"
   chart           = "ingress-azure"
   repository      = "oci://mcr.microsoft.com/azure-application-gateway/charts"
-  version         = "1.9.3"
+  version         = "1.9.4"
   wait            = true
   force_update    = true
   recreate_pods   = true
